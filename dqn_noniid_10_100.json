@@ -1,0 +1,51 @@
+{
+    "clients": {
+        "total": 100,
+        "per_round": 10,
+        "label_distribution": "uniform"
+    },
+    "data": {
+        "loading": "static",
+        "partition": {
+            "size": 600
+        },
+        "IID": false,
+        "bias": {
+            "primary": 0.8,
+            "secondary": false
+        }
+    },
+    "federated_learning": {
+        "rounds": 250,
+        "target_accuracy": 0.99,
+        "task": "train",
+        "epochs": 5,
+        "batch_size": 10
+    },
+    "model": "MNIST",
+    "paths": {
+        "data": "./data",
+        "model": "./models",
+        "case_name": "10-100_dqn"        
+    },
+    "server": "dqn",
+    "dqn": {
+        "episode": 200,
+        "max_steps": 50,
+        "learning_rate": 0.0001,
+        "gamma": 0.95,
+        "epsilon_initial": 1.0,
+        "epsilon_decay": 0.95,
+        "epsilon_min": 0.01,
+        "memory_size": 200,
+        "batch_size": 4,
+        "target_update": 10,
+        "hidden_layers": [512, 512],
+        "reward_fun": "target",
+        "reward_xi": 64,
+        "rewards_log": "output/dqn_10-100_rewards.csv",
+        "saved_model": "output/dqn_models/dqn_10-100_model", 
+        "trained_model": "output/dqn_models/dqn_10-100_model_174.h5",
+        "pca_model": "output/dqn_models/pca_10-100.pkl"
+    }
+}
